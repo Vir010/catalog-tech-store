@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог товаров с фильтрами по категориям, поиском по названию и подгрузкой товаров порциями.">
+  <title>Каталог товаров</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Store</a>
+      <p class="header__caption">Каталог</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog">
+      <div class="container">
+        <div class="catalog__head">
+          <h1 class="catalog__title">Каталог товаров</h1>
+          <p class="catalog__lead">Фильтруйте по категориям или ищите по названию.</p>
+        </div>
+
+        <div class="toolbar">
+          <ul class="filters" id="filters" aria-label="Фильтр по категориям">
+            <li><button type="button" class="filter is-active" data-category="all">Все</button></li>
+            <li><button type="button" class="filter" data-category="electronics">Электроника</button></li>
+            <li><button type="button" class="filter" data-category="clothing">Одежда</button></li>
+            <li><button type="button" class="filter" data-category="home">Дом</button></li>
+            <li><button type="button" class="filter" data-category="sports">Спорт</button></li>
+          </ul>
+
+          <div class="search">
+            <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="M20 20l-3.5-3.5"></path>
+            </svg>
+            <label for="searchInput" class="visually-hidden">Поиск по названию</label>
+            <input type="search" id="searchInput" placeholder="Поиск по названию" autocomplete="off">
+          </div>
+        </div>
+
+        <p class="result-info" id="resultInfo" aria-live="polite"></p>
+
+        <ul class="products" id="products"></ul>
+
+        <div class="pagination">
+          <button type="button" class="btn" id="loadMore">Показать ещё</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__copy">© 2026 Store. Демо-каталог.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
