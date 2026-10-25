@@ -83,6 +83,9 @@ function createProductCard(product) {
   const li = document.createElement("li");
   li.className = "product";
 
+  // Добавляем атрибут AOS для анимации появления
+  li.setAttribute("data-aos", "fade-up");
+
   li.innerHTML = `
     <div class="product__media" aria-hidden="true">${icons[product.icon] || ""}</div>
     <div class="product__body">
@@ -130,6 +133,12 @@ function render() {
     : `Показано ${shownNow} из ${total}`;
 
   loadMoreBtn.disabled = shownNow >= total;
+
+  // Обязательно обновляем AOS после перерисовки HTML, 
+  // чтобы новые карточки анимировались при клике на фильтры или поиск
+  if (window.AOS) {
+    AOS.refresh();
+  }
 }
 
 filtersEl.addEventListener("click", (event) => {
