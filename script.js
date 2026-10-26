@@ -1,3 +1,11 @@
+// Инициализация AOS
+if (typeof AOS !== "undefined") {
+  AOS.init({
+    duration: 600,
+    once: true,
+  });
+}
+
 const products = [
   { id: 1, title: "Смартфон Nexus 5", category: "electronics", price: 42990, desc: "6.4\" AMOLED, 8/256 ГБ", icon: "phone" },
   { id: 2, title: "Ноутбук Vertex 14", category: "electronics", price: 74990, desc: "14\" IPS, 16 ГБ RAM, SSD 512 ГБ", icon: "laptop" },
@@ -83,7 +91,6 @@ function createProductCard(product) {
   const li = document.createElement("li");
   li.className = "product";
 
-  // Добавляем атрибут AOS для анимации появления
   li.setAttribute("data-aos", "fade-up");
 
   li.innerHTML = `
@@ -134,8 +141,6 @@ function render() {
 
   loadMoreBtn.disabled = shownNow >= total;
 
-  // Обязательно обновляем AOS после перерисовки HTML, 
-  // чтобы новые карточки анимировались при клике на фильтры или поиск
   if (window.AOS) {
     AOS.refresh();
   }

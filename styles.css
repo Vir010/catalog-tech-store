@@ -67,7 +67,10 @@ button {
   cursor: pointer;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
 
@@ -197,7 +200,6 @@ h1, h2, h3, p {
 .filter.is-active::after {
   transform: scaleX(1);
 }
-
 
 .search {
   position: relative;
@@ -451,5 +453,23 @@ h1, h2, h3, p {
 @media (max-width: 520px) {
   .products {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Доступность: отключаем анимации */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
